@@ -1,5 +1,6 @@
 package integration;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.sql.Connection;
@@ -8,9 +9,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.function.Executable;
 
 import com.arturojas32.practicatdd6.integration.Customer;
 import com.arturojas32.practicatdd6.integration.CustomerJdbcRepository;
@@ -82,6 +83,33 @@ class CustomerJdbcRepositoryDataBaseRiderTest {
 		customerRepository.delete(id);
 		// THEN
 		// see anotation
+	}
+
+	@Test
+	@ExpectedDataSet(value = "customers.yml")
+	void shouldntDeleteIfAnyIdMatchTest() {
+
+		// GIVEN
+		Integer id = 20;
+		Executable e = () -> {
+			customerRepository.delete(id);
+		};
+		// WHEN
+		// THEN
+		// see anotation
+
+	}
+
+	@Test
+	void shouldntGetIfAnyIdMatchTest() {
+
+		// GIVEN
+		Integer id = 20;
+		Customer c = customerRepository.get(id);
+		// WHEN
+		// THEN
+		// see anotation
+		assertNull(c);
 	}
 
 	private Customer createDefaultCustomer(Integer id) {
