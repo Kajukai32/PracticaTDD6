@@ -1,0 +1,11 @@
+CUSTOMER:
+   - LEGAL_IDENTIFIER: "12345678Z"
+     NAME: "Michael"
+     LASTNAME: "Jordan"
+     EMAIL: "michaeljordan@mail.com"
+     PHONE: "611222333"
+   - LEGAL_IDENTIFIER: "12345679Z"
+     NAME: "Michaell"
+     LASTNAME: "Jordann"
+     EMAIL: "michaeljordan@mail.comm"
+     PHONE: "6112223334"
